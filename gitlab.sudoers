@@ -1,0 +1,10 @@
+User_Alias     AGORA_USER = agora
+Runas_Alias    AGORA_OP = root
+Cmnd_Alias     AGORA_COMMANDS = /usr/bin/apt-get, /usr/bin/apt-add-repository, /usr/bin/ansible-playbook, /usr/sbin/gitlab-ctl, /sbin/shutdown
+
+# dependencies
+AGORA_USER ALL=(AGORA_OP) NOPASSWD: AGORA_COMMANDS
+
+# logs
+AGORA_USER ALL=(root) NOPASSWD: /usr/bin/less /var/log/gitlab/.*
+AGORA_USER ALL=(root) NOPASSWD: /usr/bin/tail -n [0-9]* -F /var/log/gitlab/.*
